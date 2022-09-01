@@ -1,24 +1,25 @@
 let pokemonList = 
 [ //create an array of pokemon objects
+    //remember arrays start at 0
     {
     name: 'Charmander',
     height: 0.6,
-    type: 'fire'
+    type: ['fire']
     },
     {
     name: 'Cubone',
     height: 0.4,
-    type: 'ground'
+    type: ['ground']
     },
     {
     name: 'Psyduck',
     height: 0.8,
-    type: 'water'
+    type: ['water']
     },
     {
     name: 'Sandshrew',
     height: 0.6,
-    type: 'ground'
+    type: ['ground']
     },
     {
     name: 'Celebi',
