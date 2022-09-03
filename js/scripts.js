@@ -28,7 +28,8 @@ let pokemonList =
     }
 ];
 
-for (let i=0; i < pokemonList.length; i++) {
+for (let i=0; i < pokemonList.length; i++) //loop around pokemonList array
+{
     if (pokemonList.height[i] > 0.7) {
     document.write (`${pokemonList[i].name} height ${pokemonList[i].height}Woah, thats huge!<br>`); 
     } 
