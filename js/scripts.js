@@ -27,3 +27,12 @@ let pokemonList =
     type: ['psychic', 'grass']
     }
 ];
+
+for (let i=0; i < pokemonList.length; i++) {
+    if (pokemonList.height[i] < 0.4) {
+    document.write (pokemonList[i].name + ' height ' + pokemonList[i].height + 'Tiny but Mighty' ); 
+    } 
+     else {
+        document.write (pokemonlist.height[i] + ' height ' + pokemonList[i].height)
+    }
+}
