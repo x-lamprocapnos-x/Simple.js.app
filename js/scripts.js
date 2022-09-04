@@ -30,10 +30,10 @@ let pokemonList =
 
 for (let i=0; i < pokemonList.length; i++) //loop around pokemonList array
 {
-    if (pokemonList.height[i] > 0.7) {
-    document.write (`${pokemonList[i].name} height ${pokemonList[i].height}Woah, thats huge!<br>`); 
+    if (pokemonList[i].height > 0.7) {
+    document.write (`${pokemonList[i].name} height ${pokemonList[i].height} Woah, thats huge!<br>`); 
     } 
      else {
-        document.write (`${pokemonList.name[i]} height ${pokemonList[i].height}<br>`);
+        document.write (`${pokemonList[i].name} height ${pokemonList[i].height}<br>`);
     }
 }
