@@ -29,7 +29,12 @@ let pokemonRepository = (function () {
     ];
 //seperate add function
   function add(pokemon){
+    if(typeof pokemon === "object" && "name"){
     pokemonList.push(pokemon);
+    } else {
+        console.log('pokemon is not correct')
+    }
+
   }
 //seperate getAll function
   function getAll(){
