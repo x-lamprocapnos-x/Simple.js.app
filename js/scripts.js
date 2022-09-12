@@ -27,20 +27,26 @@ let pokemonRepository = (function () {
         type: ['psychic', 'grass']
         }
     ];
-//forEach fuction allowing pokemon list to be displayed
-pokemonList.forEach(function(pokemon) {
-    document.write(pokemon.name + '<br>' + pokemon.height + '<br>' + pokemon.type + '<br>')
-});
-  
-    return {
-      add: function(pokemon) {
-        pokemonList.push(pokemon);
-      },
-      getAll: function() {
-        return pokemonList;
-      }
-    };
+//seperate add function
+  function add(pokemon){
+    pokemonList.push(pokemon);
+  }
+//seperate getAll function
+  function getAll(){
+    return pokemonList;
+  }
+//return function
+  return {
+    add:add,
+    getAll:getAll
+  };
+    
   })();
   console.log(pokemonRepository.getAll()); //get pokemonList array
 pokemonRepository.add({ name: 'Furret', height: 1.8, type:'normal' }); //add pokemon 'furret"
 console.log(pokemonRepository.getAll()); //get pokemonList array
+
+//forEach fuction penetrating into IIFE to display pokemon
+pokemonRepository.getAll().forEach(function(pokemon) {
+    document.write(pokemon.name + ' ' + pokemon.height + ' ' + pokemon.type + '<br>')
+});
