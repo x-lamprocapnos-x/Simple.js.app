@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-    let pokemonList = 
+    let pokemonArray = 
     [ //array of pokemon
         {
         name: 'Charmander',
@@ -29,29 +29,40 @@ let pokemonRepository = (function () {
     ];
 //seperate add function
   function add(pokemon){
-    if(typeof pokemon === "object" && "name"){
-    pokemonList.push(pokemon);
-    } else {
-        console.log('pokemon is not correct')
-    }
+    if(typeof pokemon === 'object' && 
+    'name' in pokemon &&
+    'height' in pokemon &&
+    'type' in pokemon)
+    {pokemonArray.push(pokemon);} 
+    else {console.log('pokemon is not correct')}
 
   }
 //seperate getAll function
   function getAll(){
-    return pokemonList;
+    return pokemonArray;
+  }
+  function addListItem(pokemon){
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listPokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
   }
 //return function
   return {
     add:add,
-    getAll:getAll
+    getAll:getAll,
+    addListItem:addListItem
   };
     
   })();
   console.log(pokemonRepository.getAll()); //get pokemonList array
 pokemonRepository.add({ name: 'Furret', height: 1.8, type:'normal' }); //add pokemon 'furret"
-console.log(pokemonRepository.getAll()); //get pokemonList array
+console.log(pokemonRepository.getAll()); //get pokemonArray
 
 //forEach fuction penetrating into IIFE to display pokemon
 pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write(pokemon.name + ' ' + pokemon.height + ' ' + pokemon.type + '<br>')
+  pokemonRepository.addListItem(pokemon);
 });
