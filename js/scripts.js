@@ -1,3 +1,4 @@
+//IIFE wrap
 let pokemonRepository = (function () {
     let pokemonArray = 
     [ //array of pokemon
@@ -41,7 +42,7 @@ let pokemonRepository = (function () {
   function getAll(){
     return pokemonArray;
   };
-// adds pokemon into list items
+// adds pokemon into list items and enables pokemon buttons to listen to event
   function addListItem(pokemon){
     let pokemonList = document.querySelector('.pokemon-list');
     let listPokemon = document.createElement('li');
@@ -50,7 +51,7 @@ let pokemonRepository = (function () {
     button.classList.add('button-class');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-    button.addEventListener('click', function(event){
+    button.addEventListener('click', ()=>{
     showDetails(pokemon);
   });
   };
@@ -64,8 +65,8 @@ let pokemonRepository = (function () {
     getAll:getAll,
     addListItem:addListItem
   };
-    
   })();
+  //IIFE wrap end
   console.log(pokemonRepository.getAll()); //get pokemonList array
 pokemonRepository.add({ name: 'Furret', height: 1.8, type:'normal' }); //add pokemon 'furret"
 console.log(pokemonRepository.getAll()); //get pokemonArray
