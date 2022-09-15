@@ -1,5 +1,18 @@
+/* main decoration*/
 body{
-    background-color: rgb(254, 227, 94);
+    background-color: rgb(0, 117, 190);
     font-family:  'Tillana', cursive;
     font-weight: 400;
+}
+/* button decoration*/
+.button-class{ 
+    background-color: rgb(255, 204, 0);
+    border: 2px;
+    border-color: rgb(213, 161, 0);
+    padding: 5px;
+    margin: 10px;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    text-decoration:none;
+    font-size: 20px;
 }
