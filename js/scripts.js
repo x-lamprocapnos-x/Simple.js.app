@@ -27,7 +27,7 @@ let pokemonRepository = (function () {
         type: ['psychic', 'grass']
         }
     ];
-//seperate add function
+// add function
   function add(pokemon){
     if(typeof pokemon === 'object' && 
     'name' in pokemon &&
@@ -36,11 +36,12 @@ let pokemonRepository = (function () {
     {pokemonArray.push(pokemon);} 
     else {console.log('pokemon is not correct')}
 
-  }
-//seperate getAll function
+  };
+//getAll function
   function getAll(){
     return pokemonArray;
-  }
+  };
+// adds pokemon into list items
   function addListItem(pokemon){
     let pokemonList = document.querySelector('.pokemon-list');
     let listPokemon = document.createElement('li');
@@ -49,7 +50,14 @@ let pokemonRepository = (function () {
     button.classList.add('button-class');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-  }
+    button.addEventListener('click', function(event){
+    showDetails(pokemon);
+  });
+  };
+//showMore function
+  function showDetails(pokemon){
+    console.log(pokemon)
+  };
 //return function
   return {
     add:add,
