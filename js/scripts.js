@@ -57,7 +57,7 @@ let pokemonRepository = (function () {
   };
 //showMore function
   function showDetails(pokemon){
-    console.log(pokemon)
+    console.log(pokemon.name)
   };
 //return function
   return {
@@ -68,7 +68,7 @@ let pokemonRepository = (function () {
   })();
   //IIFE wrap end
   console.log(pokemonRepository.getAll()); //get pokemonList array
-pokemonRepository.add({ name: 'Furret', height: 1.8, type:'normal' }); //add pokemon 'furret"
+pokemonRepository.add({ name: 'Furret', height: 1.8, type:['normal'] }); //add pokemon 'furret"
 console.log(pokemonRepository.getAll()); //get pokemonArray
 
 //forEach fuction penetrating into IIFE to display pokemon
