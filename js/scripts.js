@@ -1,14 +1,20 @@
 //IIFE wrap
 let pokemonRepository = (function () {
+	//pokemonArray list
 	let pokemonArray = [];
+	//pokemon api link
+	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
 	// add function
 	function add(pokemon) {
 		if (typeof pokemon === 'object' &&
 			'name' in pokemon &&
-			'height' in pokemon &&
-			'type' in pokemon) { pokemonArray.push(pokemon); }
-		else { console.log('pokemon is not correct') }
-
+			'detailsUrl' in pokemon
+		) {
+			repository.push(pokemon);
+		} else {
+			console.log('pokemon is not correct');
+		}
 	};
 	//getAll function
 	function getAll() {
@@ -27,6 +33,23 @@ let pokemonRepository = (function () {
 			showDetails(pokemon);
 		});
 	};
+	//function loadlist for apiUrl
+	function loadList() {
+		return fetch(apiUrl).then(function (response) {
+			return response.json();
+		}).then(function (json) {
+			json.results.forEach(function (item) {
+				let pokemon = {
+					name: item.name,
+					detailsUrl: item.url
+				};
+				add(pokemon);
+			});
+		}).catch(function (e) {
+			console.error(e);
+		})
+	};
+
 	//showMore function
 	function showDetails(pokemon) {
 		console.log(pokemon.name)
