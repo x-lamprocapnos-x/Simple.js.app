@@ -11,7 +11,7 @@ let pokemonRepository = (function () {
 			'name' in pokemon &&
 			'detailsUrl' in pokemon
 		) {
-			repository.push(pokemon);
+			pokemonArray.push(pokemon);
 		} else {
 			console.log('pokemon is not correct');
 		}
@@ -58,7 +58,8 @@ let pokemonRepository = (function () {
 	return {
 		add: add,
 		getAll: getAll,
-		addListItem: addListItem
+		addListItem: addListItem,
+		loadList: loadList
 	};
 })();
 //IIFE wrap end
@@ -67,6 +68,8 @@ pokemonRepository.add({ name: 'Furret', height: 1.8, type: ['normal'] }); //add 
 console.log(pokemonRepository.getAll()); //get pokemonArray
 
 //forEach fuction penetrating into IIFE to display pokemon
+pokemonRepository.loadList().then(function() {
 pokemonRepository.getAll().forEach(function (pokemon) {
 	pokemonRepository.addListItem(pokemon);
+});
 });
