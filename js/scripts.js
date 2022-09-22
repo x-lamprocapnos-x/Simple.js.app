@@ -49,17 +49,33 @@ let pokemonRepository = (function () {
 			console.error(e);
 		})
 	};
-
+	//loadDetails function for pokemon
+	function loadDetails(item) {
+		let url = item.detailsUrl;
+		return fetch(url).then(function (response) {
+			return response.json();
+		}).then(function (details) {
+			item.imageUrl = details.sprite.front_default;
+			item.height = details.height;
+			item.types = details.types;
+		}).catch(function (e) {
+			console.error(e);
+		})
+	};
 	//showMore function
-	function showDetails(pokemon) {
-		console.log(pokemon.name)
+	function showDetails(item) {
+		pokemonRepository.loadDetails(item).then(function () {
+			console.log(item)
+		});
 	};
 	//return function
 	return {
 		add: add,
 		getAll: getAll,
 		addListItem: addListItem,
-		loadList: loadList
+		loadList: loadList,
+		loadDetails: loadDetails,
+		showDetails: showDetails
 	};
 })();
 //IIFE wrap end
@@ -68,8 +84,8 @@ pokemonRepository.add({ name: 'Furret', height: 1.8, type: ['normal'] }); //add 
 console.log(pokemonRepository.getAll()); //get pokemonArray
 
 //forEach fuction penetrating into IIFE to display pokemon
-pokemonRepository.loadList().then(function() {
-pokemonRepository.getAll().forEach(function (pokemon) {
-	pokemonRepository.addListItem(pokemon);
-});
+pokemonRepository.loadList().then(function () {
+	pokemonRepository.getAll().forEach(function (pokemon) {
+		pokemonRepository.addListItem(pokemon);
+	});
 });
