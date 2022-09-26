@@ -65,9 +65,32 @@ let pokemonRepository = (function () {
 	//showMore function
 	function showDetails(item) {
 		pokemonRepository.loadDetails(item).then(function () {
-			console.log(item)
-		});
+			//console.log(item)
+			showModal(item)
+	});
 	};
+	//showModal function
+	function showModal(item){
+		let modalContainer = document.querySelector('.modal-container');
+		modalContainer.innerText = '';
+		// create modal
+		let modal = document.createElement('div');
+		modal.classList.add('modal');
+		//modal title (pokemon name)
+		let title = document.createElement('h1');
+		title.innerText = item.name;
+		// modal content (pokemon heigt)
+		let height = document.createElement('p');
+		height.innerText = 'Height is' + item.height;
+		// modal content pokemon image
+		let image = document.createElement('img');
+		image.src = item.imageUrl
+		//append all children to modal container
+		modal.appendChild(title);
+		modal.appendChild(height);
+		modal.appendChild(image);
+		modalContainer.appendChild(modal);
+	}
 	//return function
 	return {
 		add: add,
@@ -79,6 +102,7 @@ let pokemonRepository = (function () {
 	};
 })();
 //IIFE wrap end
+
 console.log(pokemonRepository.getAll()); //get pokemonList array
 pokemonRepository.add({ name: 'Furret', height: 1.8, type: ['normal'] }); //add pokemon 'furret"
 console.log(pokemonRepository.getAll()); //get pokemonArray
