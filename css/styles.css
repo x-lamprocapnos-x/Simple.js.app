@@ -21,15 +21,22 @@ body{
     font-family: var(--content-font);
     font-weight: var(--font-400);
     font-size: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border: 2px;
     border-radius: 5px;
     border-color: rgb(79, 180, 149);
-    padding: 5px;
+    padding:  var(--padding-15);
     margin: 10px;
     color:var(--poke-white);
     text-align: center;
     text-decoration:none;
     font-size: 20px;
+}
+.button-class:hover, .button-class:focus{
+    /* lets the mouse appear as a hand when hovering over the button */
+	cursor: var(--pointer);
+	/* reduces the opacity of the button to 80% */
+	opacity: 0.8 ;
 }
 /* modal container */
 #modalContainer{
@@ -61,7 +68,7 @@ body{
     box-sizing: border-box;
     background:var(--primary-color);
     padding: var(--padding-15);
-    width: var(--fullforce);
+    width: 60%;
     max-width: 700px;
     text-align: center;
 

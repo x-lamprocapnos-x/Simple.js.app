@@ -72,7 +72,6 @@ let pokemonRepository = (function () {
 	//showModal function
 	function showModal(item){
 		let modalContainer = document.querySelector('.modal-container');
-		modalContainer.innerText = '';
 		// create modal
 		let modal = document.createElement('div');
 		modal.classList.add('modal');
@@ -90,7 +89,6 @@ let pokemonRepository = (function () {
 		modal.appendChild(height);
 		modal.appendChild(image);
 		modalContainer.appendChild(modal);
-
 		//add event listener to prompt modal
 		modalContainer.addEventListener('click',(e) => {
 			let target = e.target;
@@ -98,8 +96,8 @@ let pokemonRepository = (function () {
 				hideModal();
 			}
 		})
-
-		modalContainer.classList.add('is-visible');
+	
+		
 
 		function hideModal(){
 			let modalContainer = document.querySelector('.modal-container');
@@ -121,7 +119,8 @@ let pokemonRepository = (function () {
 		addListItem: addListItem,
 		loadList: loadList,
 		loadDetails: loadDetails,
-		showDetails: showDetails
+		showDetails: showDetails,
+		showModal: showModal,
 	};
 })();
 //IIFE wrap end
