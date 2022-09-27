@@ -1,18 +1,86 @@
-/* main decoration*/
-body{
-    background-color: rgb(0, 117, 190);
-    font-family:  'Tillana', cursive;
-    font-weight: 400;
+:root{
+    --primary-color:rgb(239, 252, 213);
+    --secondary-color:rgb(63, 143, 119);
+    --title-font:'Tillana', cursive;
+    --content-font:'Sniglet', cursive;
+    --font-400: 400;
+    --poke-white: rgb(255, 255, 255);
+    --padding-15: 15px;
+    --fullforce: 100%;
+
 }
-/* button decoration*/
+/* main decoration */
+body{
+    background-color: var(--primary-color);
+    font-family:  var(--title-font);
+    font-weight: var(--font-400);
+}
+/* button decoration */
 .button-class{ 
-    background-color: rgb(255, 204, 0);
+    background-color: var(--secondary-color);
+    font-family: var(--content-font);
+    font-weight: var(--font-400);
+    font-size: 25px;
     border: 2px;
-    border-color: rgb(213, 161, 0);
+    border-radius: 5px;
+    border-color: rgb(79, 180, 149);
     padding: 5px;
     margin: 10px;
-    color:rgb(255, 255, 255);
+    color:var(--poke-white);
     text-align: center;
     text-decoration:none;
     font-size: 20px;
+}
+/* modal container */
+#modalContainer{
+    display: none;
+}
+/* modal container is-visible display */
+#modalContainer.is-visible{
+    position: fixed;
+    padding: var(--padding-15);
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: var(--fullforce);
+    height:var(--fullforce);
+    background: rgba(0, 0, 0, 0.5);
+    /* to show above other content */
+    z-index: 999;
+    /* to allow scrolling if the screen is not high enough */
+    overflow: auto;
+    /* center modal */
+    display: grid;
+    text-align: center;
+
+}
+/* modal structure */
+.modal{
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    background:var(--primary-color);
+    padding: var(--padding-15);
+    width: var(--fullforce);
+    max-width: 700px;
+    text-align: center;
+
+}
+/* modal close display */
+.modal-close{
+    float: right;
+    border: 0;
+    background: none;
+    color: var(--poke-white);
+    text-decoration: none;
+}
+/* modal header */
+.modal h1{
+    margin-top: 0;
+    font-family: 'Sniglet', cursive;
+}
+/* modal content */
+.modal p{
+    margin-bottom: 0;
+    font-family: 'Sniglet', cursive;
 }
