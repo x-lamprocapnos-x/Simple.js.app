@@ -90,6 +90,29 @@ let pokemonRepository = (function () {
 		modal.appendChild(height);
 		modal.appendChild(image);
 		modalContainer.appendChild(modal);
+
+		//add event listener to prompt modal
+		modalContainer.addEventListener('click',(e) => {
+			let target = e.target;
+			if (target === modalContainer){
+				hideModal();
+			}
+		})
+
+		modalContainer.classList.add('is-visible');
+
+		function hideModal(){
+			let modalContainer = document.querySelector('.modal-container');
+			modalContainer.classList.remove('is-visible');
+		}
+
+		window.addEventListener('keydown', (e) => {
+			let modalContainer = document.querySelector('.modal-container');
+			if(e.key === 'escape' && modalContainer.classList.contains('is-visible')) {
+				hideModal();
+			}
+		})
+
 	}
 	//return function
 	return {
