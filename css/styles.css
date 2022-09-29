@@ -39,18 +39,18 @@ body{
 	opacity: 0.8 ;
 }
 /* modal container */
-#modalContainer{
+#modal-container{
     display: none;
 }
 /* modal container is-visible display */
-#modalContainer.is-visible{
+#modal-container.is-visible{
     position: fixed;
     padding: var(--padding-15);
     box-sizing: border-box;
     top: 0;
     left: 0;
     width: var(--fullforce);
-    height:var(--fullforce);
+    height: var(--fullforce);
     background: rgba(0, 0, 0, 0.5);
     /* to show above other content */
     z-index: 999;
