@@ -1,5 +1,6 @@
 :root{
     --primary-color:rgb(239, 252, 213);
+    --primary-darker:rgb(216, 245, 174);
     --secondary-color:rgb(63, 143, 119);
     --title-font:'Tillana', cursive;
     --content-font:'Sniglet', cursive;
@@ -16,7 +17,7 @@ body{
     font-weight: var(--font-400);
 }
 /* button decoration */
-.button-class{ 
+.btn{ 
     background-color: var(--secondary-color);
     font-family: var(--content-font);
     font-weight: var(--font-400);
@@ -32,7 +33,7 @@ body{
     text-decoration:none;
     font-size: 20px;
 }
-.button-class:hover, .button-class:focus{
+.btn:hover, .btn:focus{
     /* lets the mouse appear as a hand when hovering over the button */
 	cursor: var(--pointer);
 	/* reduces the opacity of the button to 80% */
