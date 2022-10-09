@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
 	};
 	// adds pokemon into list items and enables pokemon buttons to listen to event
 	function addListItem(pokemon) {
-		let pokemonList = document.querySelector('.pokemon-list');
+		let pokemonList = document.querySelector('.list-group');
 		let listPokemon = document.createElement('li');
 		listPokemon.classList.add('group-list-item');
 		let button = document.createElement('button');
