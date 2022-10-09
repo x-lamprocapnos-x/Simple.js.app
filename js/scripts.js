@@ -24,9 +24,10 @@ let pokemonRepository = (function () {
 	function addListItem(pokemon) {
 		let pokemonList = document.querySelector('.pokemon-list');
 		let listPokemon = document.createElement('li');
+		listPokemon.classList.add('group-list-item');
 		let button = document.createElement('button');
 		button.innerText = pokemon.name;
-		button.classList.add('button-class');
+		button.classList.add('btn');
 		listPokemon.appendChild(button);
 		pokemonList.appendChild(listPokemon);
 		button.addEventListener('click', () => {
@@ -83,10 +84,10 @@ let pokemonRepository = (function () {
 		// create modal
 		let nameElement = $('<h1>' + pokemon.name + '</h1>');
 		let imageElement = $('<img class="modal-img" style="width:50%>');
-			imageElement.attr(src = pokemon.imageUrl);
-		let heightElement = $('<p>' + 'Height is' + pokemon.height + '</p>');
-		let weightElement = $('<p>' + 'pokemon weighs' + pokemon.weight + '</p>');
-		let typeElement = $('<p>' + 'pokemon type(s)' + pokemon.types + '</p>');
+			imageElement.attr('src', pokemon.imageUrl);
+		let heightElement = $('<p>' + 'Height: ' + pokemon.height + '</p>');
+		let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
+		let typeElement = $('<p>' + 'pokemon type(s): ' + pokemon.types + '</p>');
 		//append modal children
 		modalTitle.append(nameElement);
 		modalBody.append(imageElement);
