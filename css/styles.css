@@ -38,49 +38,6 @@ body{
 	/* reduces the opacity of the button to 80% */
 	opacity: 0.8 ;
 }
-/* modal container */
-#modal-container{
-    display: none;
-}
-/* modal container is-visible display */
-#modal-container.is-visible{
-    position: fixed;
-    padding: var(--padding-15);
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    width: var(--fullforce);
-    height: var(--fullforce);
-    background: rgba(0, 0, 0, 0.5);
-    /* to show above other content */
-    z-index: 999;
-    /* to allow scrolling if the screen is not high enough */
-    overflow: auto;
-    /* center modal */
-    display: grid;
-    text-align: center;
-
-}
-/* modal structure */
-.modal{
-    margin: auto;
-    display: inline-block;
-    box-sizing: border-box;
-    background:var(--primary-color);
-    padding: var(--padding-15);
-    width: 60%;
-    max-width: 700px;
-    text-align: center;
-
-}
-/* modal close display */
-.modal-close{
-    float: right;
-    border: 0;
-    background: none;
-    color: var(--poke-white);
-    text-decoration: none;
-}
 /* modal header */
 .modal h1{
     margin-top: 0;
