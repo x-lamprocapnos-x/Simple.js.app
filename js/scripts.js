@@ -56,11 +56,11 @@ let pokemonRepository = (function () {
 		return fetch(url).then(function (response) {
 			return response.json();
 		}).then(function (details) {
-			//add item details (image, height, type)
+			//add item details (image, height,weight, and type)
 			item.imageUrl = details.sprites.front_default;
 			item.height = details.height;
 			item.weight = details.weight;
-			item.types = details.types.name;
+			item.types = details.types;
 		}).catch(function (e) {
 			console.error(e);
 		});
@@ -68,7 +68,7 @@ let pokemonRepository = (function () {
 	//showMore function
 	function showDetails(pokemon) {
 		pokemonRepository.loadDetails(pokemon).then(function () {
-			//console.log(pokemon);
+			console.log(pokemon);
 			showModal(pokemon);
 	});
 	};
