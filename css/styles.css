@@ -39,6 +39,11 @@ body{
 	/* reduces the opacity of the button to 80% */
 	opacity: 0.8 ;
 }
+
+.modal.show{
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+}
 /* modal header */
 .modal h1{
     margin-top: 0;
