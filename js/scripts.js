@@ -3,7 +3,7 @@ let pokemonRepository = (function () {
 	//pokemonArray list
 	let pokemonArray = [];
 	//pokemon api link
-	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
 
 	// add function
 	function add(pokemon) {
@@ -57,7 +57,8 @@ let pokemonRepository = (function () {
 			return response.json();
 		}).then(function (details) {
 			//add item details (image, height,weight, and type)
-			item.imageUrl = details.sprites.front_default;
+			item.imageUrlFront = details.sprites.front_default;
+			item.imageUrlback = details.sprites.back_default
 			item.height = details.height;
 			item.weight = details.weight;
 			item.types = details.types;
@@ -74,27 +75,37 @@ let pokemonRepository = (function () {
 	};
 	//showModal function
 	function showModal(pokemon){
+		let modal= $('.modal');
 		let modalBody = $('.modal-body');
 		let modalTitle = $('.modal-title');
-		let modalHeader = $('.modal-header');
-		//let modalContainer = document.querySelector('#modal-container');
-		//modalContainer.innerText = '';
 		modalTitle.empty();
 		modalBody.empty();
 		// create modal
 		let nameElement = $('<h1>' + pokemon.name + '</h1>');
-		let imageElement = $('<img class="modal-img" style="width:50%>');
-			imageElement.attr('src', pokemon.imageUrl);
+		let imageElement= $('<img class="modal-img" "width=50%">');
+			imageElement.attr('src' + pokemon.imageUrlFront + pokemon.imageUrlback);
 		let heightElement = $('<p>' + 'Height: ' + pokemon.height + '</p>');
 		let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
-		let typeElement = $('<p>' + 'pokemon type(s): ' + pokemon.types + '</p>');
+		let typeArray = [];
+		pokemon.types.forEach(item=> typeArray.push(item.type.name))
+		let typeElement = $('<p>' + 'pokemon type(s): ' + typeArray.join(', ') + '</p>');
+		let questionElement = $('<p>' + 'Will you catch me?' + '</p>');
 		//append modal children
 		modalTitle.append(nameElement);
 		modalBody.append(imageElement);
 		modalBody.append(heightElement);
 		modalBody.append(weightElement);
 		modalBody.append(typeElement);
+		modalBody.append(questionElement);
+		modal.addClass('show');
 
+	};
+
+		$('.close').click(closeModal);
+		$('.close-modal-button').click(closeModal);
+	//close modal function
+	function closeModal(){
+		$('.modal').removeClass('show');
 	};
 	//return function
 	return {
