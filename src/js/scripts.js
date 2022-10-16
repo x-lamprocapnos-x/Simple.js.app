@@ -100,9 +100,9 @@ let pokemonRepository = (function () {
 		modal.addClass('show');
 
 	};
-
-		$('.close').click(closeModal);
-		$('.close-modal-button').click(closeModal);
+	//closeModal event listeners
+	$('.close').click(closeModal);
+	$('.close-modal-button').click(closeModal);
 	//close modal function
 	function closeModal(){
 		$('.modal').removeClass('show');
@@ -119,10 +119,8 @@ let pokemonRepository = (function () {
 	};
 })();
 //IIFE wrap end
-
+//console log pokemon list
 console.log(pokemonRepository.getAll()); //get pokemonList array
-pokemonRepository.add({ name: 'Furret', height: 1.8, type: ['normal'] }); //add pokemon 'furret"
-console.log(pokemonRepository.getAll()); //get pokemonArray
 
 //forEach fuction penetrating into IIFE to display pokemon
 pokemonRepository.loadList().then(function () {
