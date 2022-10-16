@@ -1,7 +1,7 @@
 :root{
     --primary-color:rgb(239, 252, 213);
     --primary-darker:rgb(216, 245, 174);
-    --secondary-color:rgb(63, 143, 119);
+    --secondary-color:rgb(55, 129, 106);
     --title-font:'Tillana', cursive;
     --content-font:'Sniglet', cursive;
     --font-400: 400;
@@ -16,6 +16,23 @@ body{
     font-family:  var(--title-font);
     font-weight: var(--font-400);
 }
+
+.pokemon-list{
+    max-width: fit-content;
+    box-sizing: border-box;
+    border-width: 20%;
+    display: inline;
+}
+.group-list-item{
+  position: relative; 
+  display: inline-flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  border-width: 50%;;
+  margin: 10px;
+  padding:10px;
+    
+}
 /* button decoration */
 .btn{ 
     background-color: var(--secondary-color);
@@ -24,10 +41,10 @@ body{
     font-size: 25px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border: 2px;
-    border-radius: 5px;
     border-color: rgb(79, 180, 149);
     padding:  var(--padding-15);
     margin: 10px;
+    min-width: fit-content;
     color:var(--poke-white);
     text-align: center;
     text-decoration:none;
