@@ -3,7 +3,7 @@ let pokemonRepository = (function () {
 	//pokemonArray list
 	let pokemonArray = [];
 	//pokemon api link
-	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
+	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1000';
 
 	// add function
 	function add(pokemon) {
@@ -58,7 +58,7 @@ let pokemonRepository = (function () {
 		}).then(function (details) {
 			//add item details (image, height,weight, and type)
 			item.imageUrlFront = details.sprites.front_default;
-			item.imageUrlback = details.sprites.back_default
+			item.imageUrlback = details.sprites.back_default;
 			item.height = details.height;
 			item.weight = details.weight;
 			item.types = details.types;
