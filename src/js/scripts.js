@@ -71,11 +71,11 @@ let pokemonRepository = (function () {
 		pokemonRepository.loadDetails(pokemon).then(function () {
 			console.log(pokemon);
 			showModal(pokemon);
-	});
+		});
 	};
 	//showModal function
-	function showModal(pokemon){
-		let modal= $('.modal');
+	function showModal(pokemon) {
+		let modal = $('.modal');
 		let modalBody = $('.modal-body');
 		let modalTitle = $('.modal-title');
 		modalTitle.empty();
@@ -83,13 +83,13 @@ let pokemonRepository = (function () {
 		// create modal
 		let nameElement = $('<h1>' + pokemon.name + '</h1>');
 		let imageElementFront = $('<img class="modal-img" width= "55%">');
-			imageElementFront.attr('src', pokemon.imageUrlFront );
+		imageElementFront.attr('src', pokemon.imageUrlFront);
 		let imageElementBack = $('<img class="modal-img" width= "45%">')
-			imageElementBack.attr('src', pokemon.imageUrlback);
+		imageElementBack.attr('src', pokemon.imageUrlback);
 		let heightElement = $('<p>' + 'Height: ' + pokemon.height + '</p>');
 		let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
 		let typeArray = [];
-		pokemon.types.forEach(item=> typeArray.push(item.type.name))
+		pokemon.types.forEach(item => typeArray.push(item.type.name))
 		let typeElement = $('<p>' + 'pokemon type(s): ' + typeArray.join(', ') + '</p>');
 		let questionElement = $('<p>' + 'Can you catch me?' + '</p>');
 		//append modal children
@@ -105,11 +105,14 @@ let pokemonRepository = (function () {
 	};
 	//closeModal event listeners
 	$('.close').click(closeModal);
-	$('.close-modal-button').click(closeModal);
 	//close modal function
-	function closeModal(){
+	function closeModal() {
 		$('.modal').removeClass('show');
 	};
+	//searchBar function
+	
+
+
 	//return function
 	return {
 		add: add,
