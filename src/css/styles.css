@@ -1,76 +1,93 @@
-:root{
-    --primary-color:rgb(249, 221, 110);
-    --secondary-color:rgb(85, 156, 201);
-    --title-font:'Tillana', cursive;
-    --content-font:'Sniglet', cursive;
+:root {
+    --primary-color: rgb(249, 221, 110);
+    --secondary-color: rgb(85, 156, 201);
+    --title-font: 'Tillana', cursive;
+    --content-font: 'Sniglet', cursive;
     --font-400: 400;
     --font-600: 600;
     --poke-white: rgb(255, 255, 255);
     --padding-15: 15px;
-    --margin-10: 10px
-    --fullforce: 100%;
+    --margin-10: 10px --fullforce: 100%;
 
 }
+
 /* main decoration */
-body{
+body {
     background-image: linear-gradient(to right, rgb(249, 221, 110) 40%, rgb(85, 156, 201));
-    font-family:  var(--title-font);
+    font-family: var(--title-font);
     font-weight: var(--font-400);
 }
 
-.pokemon-list{
+.pokemon-list {
     max-width: max-content;
     display: inline;
 }
-.group-list-item{
-  position: relative;
-  display:inline-flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  min-width: fit-content;
-  box-sizing: border-box;
-  width: 45%;
-  margin: var(--margin-10);
-  padding: var(--padding-15);   
+
+.group-list-item {
+    position: relative;
+    display: inline-flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 45%;
+    margin: var(--margin-10);
+    padding: var(--padding-15);
 }
+
 /* button decoration */
-.btn{ 
+.btn {
     background-color: rgb(239, 252, 213);
     font-family: var(--content-font);
     font-weight: var(--font-400);
     font-size: 30px;
     text-align: center;
-    text-decoration:none;
+    text-decoration: none;
     box-shadow: 0 3px 6px rgba(250, 248, 248, 0.3);
-    padding:  var(--padding-15);
+    padding: var(--padding-15);
     margin: var(--margin-10);
     border: 2px;
     border-radius: 6px;
-    color:rgb(10, 40, 95);
-    min-width: fit-content;
-}
-.btn:hover, .btn:focus{
-    /* lets the mouse appear as a hand when hovering over the button */
-	cursor: var(--pointer);
-	/* reduces the opacity of the button to 80% */
-	opacity: 0.8 ;
+    color: rgb(10, 40, 95);
 }
 
-.modal.show{
+/* pokemon-list-item button hover/focus */
+.btn:hover,
+.btn:focus {
+    /* lets the mouse appear as a hand when hovering over the button */
+    cursor: var(--pointer);
+    /* reduces the opacity of the button to 80% */
+    opacity: 0.8;
+
+}
+
+/* modal display */
+.modal.show {
     display: block;
     background: rgba(0, 0, 0, 0.5);
 }
+
 /* modal header */
-.modal h1{
+div.modal-header {
+    background-color: rgb(10, 40, 95);
+}
+
+.modal h1 {
     margin-top: 0;
     font-family: 'Sniglet', cursive;
+    color: var(--poke-white);
 }
+
 /* modal content */
-.modal p{
+.modal p {
     margin-bottom: 0;
     font-size: 20px;
     font-weight: var(--font-600);
     font-family: 'Sniglet', cursive;
     text-align: center;
 }
-/* modal images */
+
+/*nav bar*/
+.navbar-brand{
+    max-width: fit-content;
+    margin: 10px;
+}
