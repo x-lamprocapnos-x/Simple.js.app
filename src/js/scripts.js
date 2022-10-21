@@ -56,15 +56,17 @@ let pokemonRepository = (function () {
 		return fetch(url).then(function (response) {
 			return response.json();
 		}).then(function (details) {
-			//add item details (image, height,weight, and type)
+			//add item details (image, height,weight, type, and ability)
 			item.imageUrlFront = details.sprites.front_default;
 			item.imageUrlback = details.sprites.back_default;
 			item.height = details.height;
 			item.weight = details.weight;
 			item.types = details.types;
+			item.abilities = details.abilities;
 		}).catch(function (e) {
 			console.error(e);
 		});
+
 	};
 	//showMore function
 	function showDetails(pokemon) {
@@ -90,7 +92,10 @@ let pokemonRepository = (function () {
 		let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
 		let typeArray = [];
 		pokemon.types.forEach(item => typeArray.push(item.type.name))
-		let typeElement = $('<p>' + 'pokemon type(s): ' + typeArray.join(', ') + '</p>');
+		let typeElement = $('<p>' + 'Pokemon type(s): ' + typeArray.join(', ') + '</p>');
+		//let abilityArray = [];
+		//pokemon.abilities.forEach(item => abilityArray.push(item.abilities.ability))
+		let abilityElement = $('<p>' + 'Abilities: ' + pokemon.abilities + '</p>')
 		let questionElement = $('<p>' + 'Can you catch me?' + '</p>');
 		//append modal children
 		modalTitle.append(nameElement);
@@ -99,9 +104,9 @@ let pokemonRepository = (function () {
 		modalBody.append(heightElement);
 		modalBody.append(weightElement);
 		modalBody.append(typeElement);
+		modalBody.append(abilityElement);
 		modalBody.append(questionElement);
 		modal.addClass('show');
-
 	};
 	//closeModal event listeners
 	$('.close').click(closeModal);
@@ -110,8 +115,6 @@ let pokemonRepository = (function () {
 		$('.modal').removeClass('show');
 	};
 	//searchBar function
-	
-
 
 	//return function
 	return {
