@@ -12,6 +12,7 @@
     background-image: linear-gradient(to right, rgb(249, 221, 110) 40%, rgb(85, 156, 201));
     font-family: 'Tillana', cursive;
     font-weight: 400;
+    text-align:center;
 }
 
 /* pokemon list item placement */
@@ -144,4 +145,8 @@ nav input[type=text] {
     border-radius: 40px;
     font-size: inherit;
     font-family: inherit;
+}
+
+.hide-pokemon{
+    display: none;
 }
