@@ -15,11 +15,11 @@ let pokemonRepository = (function () {
 		} else {
 			console.log('pokemon is not correct');
 		}
-	};
+	}
 	//getAll function
 	function getAll() {
 		return pokemonArray;
-	};
+	}
 	// adds pokemon into list items and enables pokemon buttons to listen to event
 	function addListItem(pokemon) {
 		let pokemonList = document.querySelector('.list-group');
@@ -33,7 +33,7 @@ let pokemonRepository = (function () {
 		button.addEventListener('click', () => {
 			showDetails(pokemon);
 		});
-	};
+	}
 	//function loadlist for apiUrl
 	function loadList() {
 		return fetch(apiUrl).then(function (response) {
@@ -49,7 +49,7 @@ let pokemonRepository = (function () {
 		}).catch(function (e) {
 			console.error(e);
 		})
-	};
+	}
 	//loadDetails function for pokemon
 	function loadDetails(item) {
 		let url = item.detailsUrl;
@@ -67,14 +67,14 @@ let pokemonRepository = (function () {
 			console.error(e);
 		});
 
-	};
+	}
 	//showMore function
 	function showDetails(pokemon) {
 		pokemonRepository.loadDetails(pokemon).then(function () {
 			console.log(pokemon);
 			showModal(pokemon);
 		});
-	};
+	}
 	//showModal function
 	function showModal(pokemon) {
 		let modal = $('.modal');
@@ -93,9 +93,9 @@ let pokemonRepository = (function () {
 		let typeArray = [];
 		pokemon.types.forEach(item => typeArray.push(item.type.name))
 		let typeElement = $('<p>' + 'Pokemon type(s): ' + typeArray.join(', ') + '</p>');
-		//let abilityArray = [];
-		//pokemon.abilities.forEach(item => abilityArray.push(item.abilities.ability))
-		let abilityElement = $('<p>' + 'Abilities: ' + pokemon.abilities + '</p>')
+		let abilityArray = [];
+		pokemon.abilities.forEach(item => abilityArray.push(item.ability.name))
+		let abilityElement = $('<p>' + 'Abilities: ' + abilityArray.join(', ') + '</p>')
 		let questionElement = $('<p>' + 'Can you catch me?' + '</p>');
 		//append modal children
 		modalTitle.append(nameElement);
@@ -107,15 +107,27 @@ let pokemonRepository = (function () {
 		modalBody.append(abilityElement);
 		modalBody.append(questionElement);
 		modal.addClass('show');
-	};
+	}
 	//closeModal event listeners
 	$('.close').click(closeModal);
 	//close modal function
 	function closeModal() {
 		$('.modal').removeClass('show');
-	};
+	}
 	//searchBar function
-
+	document.querySelector('#searchBar').addEventListener('input', searchHandler)
+	function searchHandler(e){ 
+		let pokemon=document.querySelectorAll('.pokemon-list li')
+		for(let i=0; i<pokemon.length; i++){
+			if(pokemon[i].querySelector('button').innerText.includes(e.target.value)){
+				//make these pokemon visible
+				pokemon[i].classList.remove('hide-pokemon')
+			} else {
+				//make these pokemon invisible
+				pokemon[i].classList.add('hide-pokemon')
+			}
+		}
+	}
 	//return function
 	return {
 		add: add,
