@@ -70,7 +70,7 @@ let pokemonRepository = (function () {
 	}
 	//showMore function
 	function showDetails(pokemon) {
-		pokemonRepository.loadDetails(pokemon).then(function () {
+		loadDetails(pokemon).then(function () {
 			console.log(pokemon);
 			showModal(pokemon);
 		});
@@ -129,15 +129,7 @@ let pokemonRepository = (function () {
 		}
 	}
 	//return function
-	return {
-		add: add,
-		getAll: getAll,
-		addListItem: addListItem,
-		loadList: loadList,
-		loadDetails: loadDetails,
-		showDetails: showDetails,
-		showModal: showModal,
-	};
+	return {getAll, addListItem, loadList};
 })();
 //IIFE wrap end
 //console log pokemon list
