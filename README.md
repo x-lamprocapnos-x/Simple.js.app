@@ -3,7 +3,7 @@
 
 
 # **Installation Instructions**
-#Dependencies#
+# Dependencies
 - [This App loads data from pokeAPI](https://pokeapi.co/api/v2/pokemon/?limit=1000)
 - bootstrap.min.css
 - jquery-3.3.1.slim.min.js
