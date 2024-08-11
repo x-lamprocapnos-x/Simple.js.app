@@ -47,8 +47,8 @@ Then, open your web browser and go to:
 
 
 ## **Screenshots or Demo**
-<img src="src/img/pokedex.png" alt="Pokedex" width="300">
-<img src="src/img/char.png" alt="Char" width="300">
+<img src="src/img/pokedex.png" alt="Pokedex" width="50%">
+<img src="src/img/char.png" alt="Char" width="50%">
 
 ## **API Documentation**
 [An External Pokemon API](https://pokeapi.co/api/v2/pokemon/)
